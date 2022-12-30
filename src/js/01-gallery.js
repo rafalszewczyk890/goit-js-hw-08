@@ -18,5 +18,5 @@ galleryItems.forEach(item => {
 
 let lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
-  captionDelay: 25,
+  captionDelay: 250,
 });
