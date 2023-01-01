@@ -1,9 +1,10 @@
+var throttle = require('lodash.throttle');
 const form = document.querySelector('form');
 
 let object = { email: ' ', message: ' ' };
 
-form.addEventListener('input', saveMessage);
-// form.addEventListener('submit', submitHandle);
+form.addEventListener('input', throttle(saveMessage, 500));
+form.addEventListener('submit', submitHandle);
 
 setDefault();
 
@@ -27,10 +28,10 @@ function setDefault() {
   console.log(jsonVal);
 }
 
-// function submitHandle(event) {
-//   event.preventDefault();
-//   form.elements.email.value = '';
-//   form.elements.message.value = '';
-//   localStorage.removeItem('feedback-form-state');
-//   console.log(jsonVal);
-// }
+function submitHandle(event) {
+  event.preventDefault();
+  form.elements.email.value = '';
+  form.elements.message.value = '';
+  localStorage.removeItem('feedback-form-state');
+  console.log(object);
+}
